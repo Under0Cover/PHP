@@ -3,12 +3,21 @@
 session_start();
 // Conexão
 require_once 'db_connect.php';
+// Clear
+function clear($input) {
+    global $conncet;
+    // Proteção do SQL Injection
+    $var = mysqli_escape_string($conncet, $input);
+    // Proteção do XSS
+    $var = htmlspecialchars($var);
+    return $var;
+}
 
 if(isset($_POST['botaoCadastrar'])):
-    $nome = msqli_escape_string($conncet, $_POST['nome']);
-    $sobrenome = msqli_escape_string($conncet, $_POST['sobrenome']);
-    $email = msqli_escape_string($conncet, $_POST['email']);
-    $idade = msqli_escape_string($conncet, $_POST['idade']);
+    $nome = clear($_POST['nome']);
+    $sobrenome = clear($_POST['sobrenome']);
+    $email = clear($_POST['email']);
+    $idade = clear($_POST['idade']);
 
     $sql = "INSERT INTO clientes (nome, sobrenome, emial, idade) VALUES ('$nome', '$sobrenome', '$email', '$idade')";
 
