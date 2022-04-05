@@ -9,5 +9,7 @@
     */
 
     $data = new DateTime();
+    $data->setTime(23, 30);
+    $data->setDate(2010, 1, 7);
     echo $data->format('d-m-Y H:i:s');
 ?>
