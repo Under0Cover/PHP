@@ -36,6 +36,9 @@
         'profissao' => 'Advogado'
     ];
 
-    print_r($cliente1);
+    print_r($cliente1).PHP_EOL;
+
+    $cliente2['nome'] = 'João';
+    print_r($cliente2);
 
 ?>
