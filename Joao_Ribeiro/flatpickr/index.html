@@ -15,15 +15,26 @@
 
         <hr>
 
+        <label>Indique o período de dias</label><br>
+        <input type="text" name="periodo_dias" id="periodo_dias">
+
+        <hr>
+
         <input type="submit" value="Aceitar">
     </form>
 
     <script>
-        let elemento = document.getElementById('data_nascimento');
-        elemento.flatpickr({
-            enableTime: false,
-            dateFormat: 'd-m-Y',
+        let nascimento = document.getElementById('data_nascimento');
+        nascimento.flatpickr({
+            enableTime: true,
+            dateFormat: 'd-m-Y H:i',
         });
+
+        let periodo = document.getElementById('periodo_dias');
+        periodo.flatpickr({
+            dateFormat: 'd-m-Y',
+            mode: 'range'
+        })
     </script>
 </body>
 </html>
