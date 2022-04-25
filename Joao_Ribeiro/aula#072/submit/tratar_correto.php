@@ -20,6 +20,17 @@
             continue;
         }
 
+        // verifica se o ficheiro tem tamanho físico inferior ou igual ao limite máximo
+        if($file['size'] > 500000){
+            continue;
+        }
+
+        // verificar as dimensões do ficheiro
+        $dimensoes = getimagesize($file['tmp_name']);
+        if($dimensoes[0] > 1024 || $dimensoes[1] > 900){
+            continue;
+        }
+
         // mover o ficheiro para o destino final
         move_uploaded_file($file['tmp_name'], $pasta_final.$file['name']);
     }
