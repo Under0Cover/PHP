@@ -31,16 +31,11 @@
     echo 'Fruta: '.$_SESSION['frutos'][1]. '<br>';
     echo '<hr>';
 
-    // Destruíndo todos os dados de uma sessão
-    // session_destroy();
-    // print_r($_SESSION);
-
-    // Testes:
-    unset($_SESSION['frutos'][0]);
+    /*
+        Como o session_destoy() necessita de um novo request, aqui vamos ver uma forma de limpar a sessão
+    */
+    
+    session_unset();
     print_r($_SESSION);
 
-    /*
-        Há uma informação que se faz necessária incrementar:
-            O session_destroy(); vamos ter resultados dessa destruição apenas no próximo request
-    */
 ?>
