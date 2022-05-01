@@ -1,7 +1,7 @@
 <?php
-    define('SQL_SERVER', 'OLIVER\SQLEXPRESS');
-    define('SQL_DATABASE', 'loja');
-    define('SQL_USER', 'teknisa');
-    define('SQL_PASSWORD', 'teknisa');
+    define('TSQL_SERVER', 'OLIVER\SQLEXPRESS');
+    define('TSQL_DATABASE', 'loja');
+    define('TSQL_USER', 'teknisa');
+    define('TSQL_PASSWORD', 'teknisa');
 
 ?>
