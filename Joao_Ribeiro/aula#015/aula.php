@@ -29,7 +29,7 @@
     // --------------------------------------------------------------------------
     // Testando a função com variáveis.
 
-    $texto = 'A final do Campeonato Paulista será disputada entre Palmeiras e São Paulo.';
+    $texto = 'A final do Campeonato Paulista será disputada entre Corinthians e São Paulo.';
     $edicao = 'Palmeiras';
     $final = strstr($texto, $edicao);
     echo $final; // Palmeiras e São Paulo.
