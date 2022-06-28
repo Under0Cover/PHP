@@ -30,12 +30,6 @@
     ];
 
     $gestor->insert("INSERT INTO CLIENTES VALUES (:nome)", $parametros);
-    /*
-        A utilização desse comando, neste momento, vai retornar um erro.
-        Esse erro é a não declaração do comando 'prepare'.
-        Esse comando, assim como os próximos, realmente ainda não estão definidos.
-        A declaração da classe PDO Original não está sendo utilizada ainda
-    */
     
     echo '<hr>';
     // Tratativa necessária para trazer o resultado (ainda utilizando a classe PDO e a Conexão mais simples do SQL Server): 
