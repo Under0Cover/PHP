@@ -24,9 +24,14 @@
 
     // $gestor->update("UPDATE CLIENTES SET NOME = :nome WHERE ID_CLIENTE = :id", $parametros);
 
-    // DELETE
-        // Forma diferente de fazer a query. passando os parâmetros diretamente
-    $gestor->delete("DELETE FROM CLIENTES WHERE ID_CLIENTE = :ID", [':ID' => 7]);
-    $gestor->query("DELETE FROM CLIENTES WHERE ID_CLIENTE = :ID", [':ID' => 6]);
+    // // DELETE
+    //     // Forma diferente de fazer a query. passando os parâmetros diretamente
+    // $gestor->delete("DELETE FROM CLIENTES WHERE ID_CLIENTE = :ID", [':ID' => 7]);
+    // $gestor->query("DELETE FROM CLIENTES WHERE ID_CLIENTE = :ID", [':ID' => 6]);
+
+    // SELECT
+    $consulta = $gestor->select("SELECT * FROM CLIENTES");
+    echo '<pre>';
+    print_r($consulta);
 
 ?>

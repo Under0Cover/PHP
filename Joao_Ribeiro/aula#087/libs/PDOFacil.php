@@ -178,7 +178,7 @@
                         } else {
                             $this->erro("Erro de Banco de Dados: Classe '$classe' não existe.");
                         }
-                        $this->linhasAfetadas = 0;
+                        $this->linhasAfetadas == 0;
                         return null;
                     } else {
                         $resultado = $comando->fetchAll(PDO::FETCH_CLASS, $classe);
@@ -190,6 +190,15 @@
                 $this->erro($e->getMessage());
                 return null;
             }
+            
+            // Linhas Afetadas
+            $this->linhasAfetadas = $comando->rowCount();
+
+            // Fechando Conexão
+            $this->conexao = null;
+
+            // Retorno
+            return $resultado;
         }
 
         public function insert($query, $parametros = null){
