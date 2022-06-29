@@ -16,12 +16,17 @@
     // A forma de trazer a conexão com o banco de dados, quando utiliza mais de um banco
     $gestor = new PDOFacil(CONEXAO_ANTIGA);
 
-    // UPDATE
-    $parametros = [
-        ':nome' => 'CRISTINA',
-        ':id' => '6'
-    ];
+    // // UPDATE
+    // $parametros = [
+    //     ':nome' => 'CRISTINA',
+    //     ':id' => '6'
+    // ];
 
-    $gestor->update("UPDATE CLIENTES SET NOME = :nome WHERE ID_CLIENTE = :id", $parametros);
+    // $gestor->update("UPDATE CLIENTES SET NOME = :nome WHERE ID_CLIENTE = :id", $parametros);
+
+    // DELETE
+        // Forma diferente de fazer a query. passando os parâmetros diretamente
+    $gestor->delete("DELETE FROM CLIENTES WHERE ID_CLIENTE = :ID", [':ID' => 7]);
+    $gestor->query("DELETE FROM CLIENTES WHERE ID_CLIENTE = :ID", [':ID' => 6]);
 
 ?>
