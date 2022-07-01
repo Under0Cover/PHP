@@ -8,7 +8,7 @@
     <title>Adicionar Contato</title>
 </head>
 <body>
-    <form action="adicionar_contatos.submit.php" method="post">
+    <form action="adicionar_contatos_submit.php" method="post">
         <div>
             <label>Nome:</label>
             <input type="text" name="texto_nome" maxlength="50"> <!-- UTILIZANDO O MAXLENGTH DE 50, POIS É O LIMITE NO BANCO DE DADOS -->
