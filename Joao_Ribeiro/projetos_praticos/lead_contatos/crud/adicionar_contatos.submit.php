@@ -1,8 +1,9 @@
+<!-- ARQUIVO DE ADIÇÃO DE CONTATOS -->
 <?php
-    // VERIFICAR SE FOI FEITO UM POST
-
+    
 use PDOFacil\PDOFacil;
 
+    // VERIFICAR SE FOI FEITO UM POST
     if($_SERVER['REQUEST_METHOD'] != 'POST'){
         die('Acesso inválido!');
     } else {
@@ -27,3 +28,8 @@ use PDOFacil\PDOFacil;
 
     }
 ?>
+<div>
+    <a href="../index.php">Voltar</a>
+    <span>|</span>
+    <a href="../crud/adicionar_contatos.php">Novo contato</a>
+</div>
