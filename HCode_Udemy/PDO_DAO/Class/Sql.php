@@ -8,14 +8,14 @@
             $this->conexao = new PDO("mysql:host=localhost; dbname=db_php7", "root", "");
         }
 
-        public function setandoParametros($stmt, $parametros = array()){
-            foreach ($parametros as $chave => $valor) {
-                $stmt->setParam($chave, $valor);
-            }
+        public function setParametro($stmt, $chave, $valor){
+            $stmt->bindParam($chave, $valor);
         }
 
-        public function setandoParametro($stmt, $chave, $valor){
-            $stmt->bindParam($chave, $valor);
+        public function setandoParametros($stmt, $parametros = array()){
+            foreach ($parametros as $chave => $valor) {
+                $this->setParametro($stmt, $chave, $valor);
+            }
         }
 
         public function consulta($consulta, $parametros = array()):object{
