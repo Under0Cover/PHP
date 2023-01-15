@@ -2,8 +2,9 @@
 
     require_once('config.php');
 
-    $usuario = new Usuario();
-    $usuario->login('user', '123');
+    $usuario = new Usuario('joaquim', 'da silva');
+
+    $usuario->inserindo();
     echo($usuario);
 
 ?>

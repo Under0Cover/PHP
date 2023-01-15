@@ -6,6 +6,12 @@
         private $dessenha;
         private $dtcadastro;
 
+        // CONSTRUCT
+        public function __construct($login = null, $senha = null){
+            $this->setaDesLogin($login);
+            $this->setaDesSenha($senha);
+        }
+
         // GETTERS E SETTERS
         public function pegaIdUsuario(){
             return $this->idusuario;
@@ -42,6 +48,13 @@
         /*=========================================================================================================================*/
         // MÉTODOS
 
+        public function setandoDados($dados){
+            $this->setaIdUsuario($dados['idusuario']);
+            $this->setaDesLogin($dados['deslogin']);
+            $this->setaDesSenha($dados['dessenha']);
+            $this->setaDtCadastro(new DateTime($dados['dtcadastro']));
+        }
+
         public function carregarPeloId($id){
             $sql = new Sql;
             $resultado = $sql->selecionando("SELECT * FROM tb_usuarios WHERE idusuario = :ID", array(
@@ -50,10 +63,7 @@
 
             if (count($resultado) > 0){
                 $linhaRetorno = $resultado[0];
-                $this->setaIdUsuario($linhaRetorno['idusuario']);
-                $this->setaDesLogin($linhaRetorno['deslogin']);
-                $this->setaDesSenha($linhaRetorno['dessenha']);
-                $this->setaDtCadastro(new DateTime($linhaRetorno['dtcadastro']));
+                $this->setandoDados($linhaRetorno);
             }
         }
 
@@ -78,12 +88,22 @@
 
             if (count($resultado) > 0){
                 $linhaRetorno = $resultado[0];
-                $this->setaIdUsuario($linhaRetorno['idusuario']);
-                $this->setaDesLogin($linhaRetorno['deslogin']);
-                $this->setaDesSenha($linhaRetorno['dessenha']);
-                $this->setaDtCadastro(new DateTime($linhaRetorno['dtcadastro']));
+                $this->setandoDados($linhaRetorno);
             } else {
                 throw new Exception('Login e/ou senha inválidos!');
+            }
+        }
+
+        public function inserindo(){
+            $sql = new Sql();
+            $resultado = $sql->selecionando("CALL sp_usuarios_inserindo(:LOGIN, :SENHA)", array(
+                ':LOGIN'    =>  $this->pegaDesLogin(),
+                ':SENHA'    =>  $this->pegaDesSenha()
+            ));
+
+            if (count($resultado) > 0){
+                $linhaRetorno = $resultado[0];
+                $this->setandoDados($linhaRetorno);
             }
         }
 
