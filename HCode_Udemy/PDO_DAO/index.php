@@ -2,9 +2,10 @@
 
     require_once('config.php');
 
-    $usuario = new Usuario('joaquim', 'da silva');
+    $usuario = new Usuario();
 
-    $usuario->inserindo();
+    $usuario->carregarPeloId(8);
+    $usuario->atualizarCadastro('Professor', 'abc');
     echo($usuario);
 
 ?>

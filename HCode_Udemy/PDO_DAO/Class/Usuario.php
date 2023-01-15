@@ -107,6 +107,18 @@
             }
         }
 
+        public function atualizarCadastro($login, $senha){
+            $this->setaDesLogin($login);
+            $this->setaDesSenha($senha);
+
+            $sql = new Sql();
+            $sql->consulta("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :SENHA WHERE idusuario = :ID", array(
+                ':LOGIN'    =>  $this->pegaDesLogin(),
+                ':SENHA'    =>  $this->pegaDesSenha(),
+                ':ID'       =>  $this->pegaIdUsuario()
+            ));
+        }
+
         public function __toString(){
             return json_encode(array(
                 "idusuario"     =>  $this->pegaIdUsuario(),
