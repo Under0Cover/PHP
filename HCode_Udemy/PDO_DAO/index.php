@@ -5,7 +5,8 @@
     $usuario = new Usuario();
 
     $usuario->carregarPeloId(8);
-    $usuario->atualizarCadastro('Professor', 'abc');
+    $usuario->deletando();
+
     echo($usuario);
 
 ?>

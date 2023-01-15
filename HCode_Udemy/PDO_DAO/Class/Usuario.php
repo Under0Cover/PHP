@@ -119,6 +119,16 @@
             ));
         }
 
+        public function deletando(){
+            $sql = new Sql();
+            $sql->consulta("DELETE FROM tb_usuarios WHERE idusuario = :ID", array(
+                ':ID'       =>  $this->pegaIdUsuario()
+            ));
+            $this->setaDesLogin(null);
+            $this->setaDesSenha(null);
+            $this->setaDtCadastro(null);
+        }
+
         public function __toString(){
             return json_encode(array(
                 "idusuario"     =>  $this->pegaIdUsuario(),
