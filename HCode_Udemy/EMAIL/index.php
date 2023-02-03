@@ -45,7 +45,7 @@
     $mail->SMTPAuth = true;
 
     //Username to use for SMTP authentication - use full email address for gmail
-    $mail->Username = 'emailprojetosteste@gmail.com';
+    $mail->Username = 'emailparatesteseprojetos@gmail.com';
 
     //Password to use for SMTP authentication
     $mail->Password = '';
@@ -54,11 +54,11 @@
     //Note that with gmail you can only use your account address (same as `Username`)
     //or predefined aliases that you have configured within your account.
     //Do not use user-submitted addresses in here
-    $mail->setFrom('emailprojetosteste@gmail.com', 'Email Projetos');
+    $mail->setFrom('emailparatesteseprojetos@gmail.com', 'Email Projetos');
 
     //Set an alternative reply-to address
     //This is a good place to put user-submitted addresses
-    $mail->addReplyTo('emailprojetosteste@gmail.com', 'Email Projetos');
+    $mail->addReplyTo('emailparatesteseprojetos@gmail.com', 'Email Projetos');
 
     //Set who the message is to be sent to
     $mail->addAddress('charlesfernandeswww@gmail.com', 'John Doe');
